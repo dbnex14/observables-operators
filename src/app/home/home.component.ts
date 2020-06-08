@@ -33,7 +33,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       }, 1000);
     });
 
-
+    // Note how we add operators such as in this case filter and map separated by
+    // comma before subscribing to data.
     this.firstObsSubscription = customIntervalObservable.pipe(filter(data => {
       return data > 0;
     }), map((data: number) => {
