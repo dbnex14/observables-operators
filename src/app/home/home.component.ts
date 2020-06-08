@@ -37,6 +37,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.firstObsSubscription = customIntervalObservable.pipe(filter(data => {
       return data > 0;
     }), map((data: number) => {
+      // operator to map or transform data into the way we want it to be transformed
       return 'Round: ' + (data + 1);
     })).subscribe(data => {
       console.log(data);
