@@ -38,6 +38,9 @@ export class HomeComponent implements OnInit, OnDestroy {
       return data > 0;
     }), map((data: number) => {
       // operator to map or transform data into the way we want it to be transformed
+      // Note that we call pipe() on our observable, then we subscribe on it; othwerwise,
+      // the operator will not modify data in subscription.
+      // Also if we have multiple operators, we separate them by comma inside pipe() call.
       return 'Round: ' + (data + 1);
     })).subscribe(data => {
       console.log(data);
